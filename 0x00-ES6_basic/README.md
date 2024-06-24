@@ -1,16 +1,9 @@
-Certainly! Here's a reformatted version of the project description for clarity and presentation:
-
 ---
 
 # Project: 0x00. ES6 Basics
-
-![Node_JS](./main-files/arrow-functions.png)
-
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=900&size=32&pause=1000&width=435&lines=ES6+Basic\(:)](https://git.io/typing-svg)
 
 > This document outlines the tasks for the ES6 Basics project, which is part of the ALXSE short specializations curriculum focused on modern JavaScript, particularly ECMAScript 6 (ES6).
-
-![Arrow Functions](./main-files/node_js-img.png)
 
 ## Resources
 
@@ -64,5 +57,3 @@ Each task involves modifying existing JavaScript functions or creating new ones 
 The tasks are organized in separate files within the project directory, facilitating clear implementation and testing of each ES6 feature.
 
 ---
-
-This format provides a structured and clear overview of the project, outlining its objectives, resources, environment setup, and task details in a concise manner.
