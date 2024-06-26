@@ -1,12 +1,10 @@
-Certainly! Here's the updated README.md with active links and without using code blocks for the resources section:
-
 # Project: 0x01. ES6 Promises
 
 ![ES6-Promises](./main_files/es6-promises.jpeg)
 
 ## Resources
 
-### Texts:-
+### Read or watch:-
 
 - [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 - [JavaScript Promise: An introduction](https://web.dev/articles/promises)
@@ -14,11 +12,9 @@ Certainly! Here's the updated README.md with active links and without using code
 - [Async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 - [Throw / Try](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw)
 
-These links will appear as active texts that can be clicked to navigate to the respective resources.
-
 ## Project Setup
 
-### Install NodeJS 12.11.x
+## Install NodeJS 12.11.x
 
 ```bash
 curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
@@ -33,7 +29,7 @@ nodejs -v
 npm -v
 ```
 
-### Install Jest, Babel, and ESLint
+## Install Jest, Babel, and ESLint
 
 Run the following command in your project directory to install `Jest`, `Babel`, and `ESLint`:
 
@@ -43,12 +39,14 @@ npm install
 
 ## Configuration Files
 
+Add the files below to your project directory
+
 ### `package.json`
 
 <details>
 <summary>Click to show/hide file contents</summary>
 
-```json
+```bash
 {
   "scripts": {
     "lint": "./node_modules/.bin/eslint",
@@ -77,7 +75,7 @@ npm install
 <details>
 <summary>Click to show/hide file contents</summary>
 
-```js
+```bash
 module.exports = {
   presets: [
     [
@@ -99,9 +97,12 @@ module.exports = {
 <details>
 <summary>Click to show/hide file contents</summary>
 
-```js
-export function uploadPhoto(filename) {
-  return Promise.reject(new Error(`${filename} cannot be processed`));
+```bash
+export function uploadPhoto() {
+  return Promise.resolve({
+    status: 200,
+    body: 'photo-profile-1',
+  });
 }
 
 export function createUser() {
@@ -119,7 +120,7 @@ export function createUser() {
 <details>
 <summary>Click to show/hide file contents</summary>
 
-```js
+```bash
 module.exports = {
   env: {
     browser: false,
@@ -163,15 +164,16 @@ module.exports = {
 
 ## Response Data Format
 
-`uploadPhoto` returns a promise rejecting with an error:
+`uploadPhoto` returns a response with the format:
 
 ```json
 {
-  "error": "filename cannot be processed"
+  "status": 200,
+  "body": "photo-profile-1"
 }
 ```
 
-`createUser` returns a response with the format:
+`createUser` returns a response with the format
 
 ```json
 {
@@ -355,6 +357,185 @@ Write and export a function named `handleProfileSignup`. It should accept three 
 ```bash
 [
     {
-      status: status
+      status: status_of_the_promise,
+      value: value or error returned by the Promise
+    },
+    ...
+  ]
+```
 
+```bash
+bob@dylan:~$ cat 6-main.js
+import handleProfileSignup from './6-final-user';
 
+console.log(handleProfileSignup("Bob", "Dylan", "bob_dylan.jpg"));
+
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 6-main.js 
+Promise { <pending> }
+bob@dylan:~$ 
+```
+
+7. [Load balancer](./7-load_balancer.js) :
+
+Write and export a function named `loadBalancer`. It should accept two arguments `chinaDownload` (Promise) and `USDownload` (Promise).
+
+The function should return the value returned by the promise that resolved the first.
+
+```bash
+export default function loadBalancer(chinaDownload, USDownload) {
+
+}
+```
+
+```bash
+bob@dylan:~$ cat 7-main.js
+import loadBalancer from "./7-load_balancer";
+
+const ukSuccess = 'Downloading from UK is faster';
+const frSuccess = 'Downloading from FR is faster';
+
+const promiseUK = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 100, ukSuccess);
+});
+
+const promiseUKSlow = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 400, ukSuccess);
+});
+
+const promiseFR = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 200, frSuccess);
+});
+
+const test = async () => {
+    console.log(await loadBalancer(promiseUK, promiseFR));
+    console.log(await loadBalancer(promiseUKSlow, promiseFR));
+}
+
+test();
+
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 7-main.js 
+Downloading from UK is faster
+Downloading from FR is faster
+bob@dylan:~$ 
+```
+
+8. [Throw error / try catch](./8-try.js) :
+
+Write a function named `divideFunction` that will accept two arguments: `numerator` (Number) and `denominator` (Number).
+
+When the `denominator` argument is equal to 0, the function should throw a new error with the message `cannot divide by 0`. Otherwise it should return the numerator divided by the denominator.
+
+```bash
+export default function divideFunction(numerator, denominator) {
+
+}
+```
+
+```bash
+bob@dylan:~$ cat 8-main.js
+import divideFunction from './8-try';
+
+console.log(divideFunction(10, 2));
+console.log(divideFunction(10, 0));
+
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 8-main.js 
+5
+..../8-try.js:15
+  throw Error('cannot divide by 0');
+  ^
+.....
+
+bob@dylan:~$ 
+```
+
+9. [Throw an error](./9-try.js) :
+
+Write a function named `guardrail` that will accept one argument `mathFunction` (Function).
+
+This function should create and return an array named `queue`.
+
+When the `mathFunction` function is executed, the value returned by the function should be appended to the queue. If this function throws an error, the error message should be appended to the queue. In every case, the message `Guardrail was processed` should be added to the queue.
+
+Example:
+
+```bash
+[
+  1000,
+  'Guardrail was processed',
+]
+```
+
+```bash
+bob@dylan:~$ cat 9-main.js
+import guardrail from './9-try';
+import divideFunction from './8-try';
+
+console.log(guardrail(() => { return divideFunction(10, 2)}));
+console.log(guardrail(() => { return divideFunction(10, 0)}));
+
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 9-main.js 
+[ 5, 'Guardrail was processed' ]
+[ 'Error: cannot divide by 0', 'Guardrail was processed' ]
+bob@dylan:~$ 
+```
+
+10. [Await / Async](100-await.js) : 
+
+Import `uploadPhoto` and `createUser` from `utils.js`
+
+Write an async function named `asyncUploadUser` that will call these two functions and return an object with the following format:
+
+```bash
+{
+  photo: response_from_uploadPhoto_function,
+  user: response_from_createUser_function,
+}
+```
+
+If one of the async function fails, return an empty object. Example:
+
+```bash
+{
+  photo: null,
+  user: null,
+}
+```
+
+```bash
+bob@dylan:~$ cat 100-main.js
+import asyncUploadUser from "./100-await";
+
+const test = async () => {
+    const value = await asyncUploadUser();
+    console.log(value);
+};
+
+test();
+
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 100-main.js 
+{
+  photo: { status: 200, body: 'photo-profile-1' },
+  user: { firstName: 'Guillaume', lastName: 'Salva' }
+}
+bob@dylan:~$ 
+```
+
+---
+
+### Environment
+
+- Language: JavaScript
+  - Node Version: 12.11.1
+  - OS: Ubuntu 20.04 LTS
+  - Style guidelines:
+    - [Javascript Semistandard](https://github.com/standard/semistandard) `sudo npm install semistandard --global`
+    - [Eslint Standard](https://eslint.org/) `npx eslint nameoffile.js`
+  - [Install Semistandard - Note](../0x12-javascript-warm_up/README.md)
+    - [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript)
+
+---
