@@ -1,7 +1,5 @@
 # Project: 0x01. ES6 Promises
 
-![ES6-Promises](./main_files/es6-promises.jpeg)
-
 ## Resources
 
 ### Read or watch:-
