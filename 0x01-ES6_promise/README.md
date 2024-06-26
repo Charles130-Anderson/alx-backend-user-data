@@ -13,6 +13,20 @@
 ## Project Setup
 
 ## Install NodeJS 12.11.x
+---
+
+### Environment
+
+- Language: JavaScript
+  - Node Version: 12.11.1
+  - OS: Ubuntu 20.04 LTS
+  - Style guidelines:
+    - [Javascript Semistandard](https://github.com/standard/semistandard) `sudo npm install semistandard --global`
+    - [Eslint Standard](https://eslint.org/) `npx eslint nameoffile.js`
+  - [Install Semistandard - Note](../0x12-javascript-warm_up/README.md)
+    - [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript)
+
+---
 
 ```bash
 curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
@@ -523,17 +537,4 @@ bob@dylan:~$ npm run dev 100-main.js
 bob@dylan:~$ 
 ```
 
----
 
-### Environment
-
-- Language: JavaScript
-  - Node Version: 12.11.1
-  - OS: Ubuntu 20.04 LTS
-  - Style guidelines:
-    - [Javascript Semistandard](https://github.com/standard/semistandard) `sudo npm install semistandard --global`
-    - [Eslint Standard](https://eslint.org/) `npx eslint nameoffile.js`
-  - [Install Semistandard - Note](../0x12-javascript-warm_up/README.md)
-    - [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript)
-
----
