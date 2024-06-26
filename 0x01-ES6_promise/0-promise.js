@@ -1,10 +1,5 @@
-function getResponseFromAPI() {
-    return new Promise((resolve, reject) => {
-        // Simulate an asynchronous operation with setTimeout
-        setTimeout(() => {
-            resolve('Response from API');
-        }, 1000);
-    });
-}
+/* eslint-disable */
 
-export default getResponseFromAPI;
+export default function getResponseFromAPI() {
+  return new Promise((resolve) => resolve);
+}
