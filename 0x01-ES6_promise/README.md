@@ -1,11 +1,8 @@
+Certainly! Here's the updated README.md with active links and without using code blocks for the resources section:
 
-
-```markdown
 # Project: 0x01. ES6 Promises
 
 ![ES6-Promises](./main_files/es6-promises.jpeg)
-
-Here's how you can format the README.md to display active links without using code blocks:
 
 ## Resources
 
@@ -17,17 +14,8 @@ Here's how you can format the README.md to display active links without using co
 - [Async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 - [Throw / Try](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw)
 
-These links will appear as active texts that can be clicked to navigate to the respective resources. If you have any more formatting preferences or other requests, feel free to let me know!
+These links will appear as active texts that can be clicked to navigate to the respective resources.
 
-## Resources
-
-- [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-- [JavaScript Promise: An introduction](https://web.dev/articles/promises)
-- [Await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
-- [Async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
-- [Throw / Try](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw)
-
-These links will appear as active texts that can be clicked to navigate to the respective resources. If you have any more formatting preferences or other requests, feel free to let me know!
 ## Project Setup
 
 ### Install NodeJS 12.11.x
@@ -367,7 +355,4 @@ Write and export a function named `handleProfileSignup`. It should accept three 
 ```bash
 [
     {
-      status: status_of_the_promise,
-      value: value or error returned by the Promise
-    },
-    ...
+      status: status
