@@ -1,4 +1,4 @@
-Here's the custom `README.md` based on the information you provided:
+
 
 ```markdown
 # Project: 0x01. ES6 Promises
@@ -7,7 +7,9 @@ Here's the custom `README.md` based on the information you provided:
 
 ## Resources
 
-### Read or watch:-
+## Resources
+
+### Texts:-
 
 - [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 - [JavaScript Promise: An introduction](https://web.dev/articles/promises)
