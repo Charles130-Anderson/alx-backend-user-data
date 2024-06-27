@@ -1,5 +1,7 @@
 # Project: 0x02. ES6 classes
 
+![image](https://github.com/Charles130-Anderson/alx-backend-javascript/assets/138807102/2ac5a8a3-2d01-484c-9f65-459c5b954bf4)
+
 ## Resources
 
 ### Read or watch:-
