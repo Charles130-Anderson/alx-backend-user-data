@@ -1,11 +1,8 @@
+//setter and getter
 export default class Currency {
   constructor(code, name) {
-    if (typeof code !== 'string') {
-      throw new TypeError('code must be a string');
-    }
-    if (typeof name !== 'string') {
-      throw new TypeError('name must be a string');
-    }
+    if (typeof code !== 'string') throw TypeError('student must be a String');
+    if (typeof name !== 'string') throw TypeError('student must be a String');
 
     this._code = code;
     this._name = name;
@@ -15,21 +12,17 @@ export default class Currency {
     return this._code;
   }
 
+  set code(newCode) {
+    if (typeof code !== 'string') throw TypeError('student must be a String');
+    this._code = newCode;
+  }
+
   get name() {
     return this._name;
   }
 
-  set code(newCode) {
-    if (typeof newCode !== 'string') {
-      throw new TypeError('code must be a string');
-    }
-    this._code = newCode;
-  }
-
   set name(newName) {
-    if (typeof newName !== 'string') {
-      throw new TypeError('name must be a string');
-    }
+    if (typeof newName !== 'string') throw TypeError('student must be a String');
     this._name = newName;
   }
 
