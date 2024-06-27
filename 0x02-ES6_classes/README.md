@@ -1,13 +1,26 @@
 # Project: 0x02. ES6 classes
 
-![ES6-Classes](./main_files/ES6-Classes.jpeg)
-
 ## Resources
 
 ### Read or watch:-
 
 - [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 - [Metaprogramming](https://www.keithcirkel.co.uk/metaprogramming-in-es6-symbols/#symbolspecies)
+
+---
+
+### Environment
+
+- Language: JavaScript
+  - Node Version: 12.11.1
+  - OS: Ubuntu 20.04 LTS
+  - Style guidelines:
+    - [Javascript Semistandard](https://github.com/standard/semistandard) `sudo npm install semistandard --global`
+    - [Eslint Standard](https://eslint.org/) `npx eslint nameoffile.js`
+  - [Install Semistandard - Note](../0x12-javascript-warm_up/README.md)
+    - [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript)
+
+---
 
 ## Project Setup
 
@@ -593,23 +606,7 @@ Car { _brand: undefined, _motor: undefined, _color: undefined }
 bob@dylan:~$ 
 ```
 
----
-
-### Environment
-
-- Language: JavaScript
-  - Node Version: 12.11.1
-  - OS: Ubuntu 20.04 LTS
-  - Style guidelines:
-    - [Javascript Semistandard](https://github.com/standard/semistandard) `sudo npm install semistandard --global`
-    - [Eslint Standard](https://eslint.org/) `npx eslint nameoffile.js`
-  - [Install Semistandard - Note](../0x12-javascript-warm_up/README.md)
-    - [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript)
-
----
-
 ## Author
 
-- _Website_ - [Ayomide Kayode](https://github.com/AyomideKayode)
+- _Website_ - [Ayomide Kayode](https://github.com/Charles130-Anderson)
 - _ALX Software Engineering Program_ - [ALX_AFRICA](https://www.alxafrica.com/programmes/)
-- _Twitter_ - [@kazzy_wiz](https://www.twitter.com/kazzy_wiz)
