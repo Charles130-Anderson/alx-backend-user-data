@@ -1,7 +1,7 @@
-import ClassRoom from './0-classroom.js';
+import ClassRoom from './0-classroom';
 
-// Function to initialize an array of ClassRoom objects with specified sizes
 export default function initializeRooms() {
-  const roomSizes = [19, 20, 34];
-  return roomSizes.map(size => new ClassRoom(size));
+  const sizes = [19, 20, 34];
+  const rooms = sizes.map(size => new ClassRoom(size));
+  return rooms;
 }
