@@ -2,6 +2,8 @@
 
 # Project: 0x00. ES6 Basics
 
+![image](https://github.com/Charles130-Anderson/alx-backend-javascript/assets/138807102/b2e975f2-876e-41de-a6b3-1d5f93a3b985)
+
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=900&size=32&pause=1000&width=435&lines=ES6+Basic\(:)](https://git.io/typing-svg)
 
 > This document outlines the tasks for the ES6 Basics project, which is part of the ALXSE short specializations curriculum focused on modern JavaScript, particularly ECMAScript 6 (ES6).
