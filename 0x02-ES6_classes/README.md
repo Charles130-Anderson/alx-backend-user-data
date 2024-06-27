@@ -1,7 +1,10 @@
 # Project: 0x02. ES6 classes
 
 ![image](https://github.com/Charles130-Anderson/alx-backend-javascript/assets/138807102/2ac5a8a3-2d01-484c-9f65-459c5b954bf4)
-![GIF](https://tenor.com/view/ecmascript-es-javascript-js-es6-gif-11294120070276036683)
+
+![GIF](https://media.tenor.com/images/4a435a4891658b8cb1f7b0f5d41fb4d5/tenor.gif)
+
+# My Project
 
 ## Resources
 
