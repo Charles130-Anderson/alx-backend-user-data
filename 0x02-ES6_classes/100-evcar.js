@@ -1,4 +1,3 @@
-
 /* eslint-disable class-methods-use-this */
 import Car from './10-car';
 
