@@ -1,5 +1,7 @@
 # Project: 0x01. ES6 Promises
 
+![image](https://github.com/Charles130-Anderson/alx-backend-javascript/assets/138807102/50628e51-f03f-4817-a110-fd7c21978af5)
+
 ## Resources
 
 ### Read or watch:-
