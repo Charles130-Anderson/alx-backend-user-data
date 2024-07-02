@@ -1,6 +1,18 @@
 # Project: 0x03. ES6 data manipulation
 
-![Array Data Manipulation](./main_files/array_data-manipulation.jpg)
+![image](https://github.com/Charles130-Anderson/alx-backend-javascript/assets/138807102/1b8f6d1b-630a-447b-82d2-a74f0b2686dd)
+
+### Requirements
+
+All your files will be executed on Ubuntu 18.04 LTS using NodeJS 12.11.x
+Allowed editors: vi, vim, emacs, Visual Studio Code
+All your files should end with a new line
+A README.md file, at the root of the folder of the project, is mandatory
+Your code should use the js extension
+Your code will be tested using Jest and the command npm run test
+Your code will be verified against lint using ESLint
+Your code needs to pass all the tests and lint. You can verify the entire project running npm run full-test
+All of your functions must be exported
 
 ## Resources
 
