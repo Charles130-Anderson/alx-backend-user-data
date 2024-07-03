@@ -1,6 +1,7 @@
 # 0x04. TypeScript
 
 This project covers various TypeScript concepts and practices. Below is a breakdown of tasks, learning objectives, resources, and requirements.
+![image](https://github.com/Charles130-Anderson/alx-backend-javascript/assets/138807102/91827e8c-28c7-4528-a536-6b0c627035d7)
 
 ## Project Details
 
