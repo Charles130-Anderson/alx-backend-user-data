@@ -50,7 +50,24 @@ const createEmployee = (salary: number | string): Director | Teacher => {
   return new Director();
 }
 
+// Type predicate function isDirector
+const isDirector = (employee: Director | Teacher): employee is Director => {
+  return (employee as Director).workDirectorTasks !== undefined;
+}
+
+// executeWork function
+const executeWork = (employee: Director | Teacher): void => {
+  if (isDirector(employee)) {
+    console.log(employee.workDirectorTasks());
+  } else {
+    console.log(employee.workTeacherTasks());
+  }
+}
+
 // Expected result examples
 console.log(createEmployee(200)); // Output: Teacher instance
 console.log(createEmployee(1000)); // Output: Director instance
 console.log(createEmployee('$500')); // Output: Director instance
+
+executeWork(createEmployee(200)); // Output: Getting to work
+executeWork(createEmployee(1000)); // Output: Getting to director tasks
