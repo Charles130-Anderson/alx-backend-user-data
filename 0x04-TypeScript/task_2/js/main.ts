@@ -64,7 +64,25 @@ const executeWork = (employee: Director | Teacher): void => {
   }
 }
 
-// Expected result examples
+// String literal type Subjects
+type Subjects = 'Math' | 'History';
+
+// Function teachClass
+const teachClass = (todayClass: Subjects): string => {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else if (todayClass === 'History') {
+    return 'Teaching History';
+  } else {
+    throw new Error('Invalid subject');
+  }
+}
+
+// Example usage
+console.log(teachClass('Math')); // Output: Teaching Math
+console.log(teachClass('History')); // Output: Teaching History
+
+// Example usage of createEmployee and executeWork
 console.log(createEmployee(200)); // Output: Teacher instance
 console.log(createEmployee(1000)); // Output: Director instance
 console.log(createEmployee('$500')); // Output: Director instance
