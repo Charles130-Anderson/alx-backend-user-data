@@ -9,6 +9,21 @@ This project covers various TypeScript concepts and practices. Below is a breakd
 - **Project Dates**: July 3, 2024, 6:00 AM - July 4, 2024, 6:00 AM
 - **Manual QA**: Review must be requested upon project completion
 
+## Project Setup
+
+## Install Nodejs 12.11.x
+curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt install nodejs -y
+
+## Verify NodeJS and nmp versions
+nodejs -v
+npm -v
+
+## Install Jest, Babel, and ESLint
+Run the following command in your project directory to install Jest, Babel, and ESLint:
+npm install
+
 ## Resources
 
 ### Read or watch:
