@@ -22,6 +22,7 @@ npm -v
 
 ## Install Jest, Babel, and ESLint
 Run the following command in your project directory to install Jest, Babel, and ESLint:
+
 npm install
 
 ## Resources
