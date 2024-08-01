@@ -47,3 +47,22 @@ class RedactingFormatter(logging.Formatter):
             self.fields, self.REDACTION, record.getMessage(), self.SEPARATOR
         )
         return super(RedactingFormatter, self).format(record)
+
+
+PII_FIELDS = ("email", "ssn", "password", "phone", "last_login")
+
+
+def get_logger() -> logging.Logger:
+    """
+    Create and configure a logger.
+
+    :return: configured logger
+    """
+    logger = logging.getLogger("user_data")
+    logger.setLevel(logging.INFO)
+    logger.propagate = False
+    handler = logging.StreamHandler()
+    formatter = RedactingFormatter(fields=PII_FIELDS)
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    return logger
