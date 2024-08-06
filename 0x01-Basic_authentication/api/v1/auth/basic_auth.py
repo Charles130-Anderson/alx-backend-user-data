@@ -57,7 +57,7 @@ class BasicAuth(Auth):
         if ':' not in decoded_base64_authorization_header:
             return None, None
 
-        credentials = decoded_base64_authorization_header.split(':', 1)
+        credentials = decoded_base64_authorization_header.split(':', maxsplit=1)
 
         return credentials[0], credentials[1]
 
@@ -84,6 +84,7 @@ class BasicAuth(Auth):
 
     def current_user(self, request=None) -> TypeVar('User'):
         """ overloads Auth and retrieves the User instance for a request """
+        # Retrieve auth header from the request using Auth method
         auth_header = self.authorization_header(request)
 
         if not auth_header:
@@ -93,7 +94,7 @@ class BasicAuth(Auth):
 
         if not encoded:
             return None
-
+        # Decode auth header value, get user data using Basic Auth methods
         decoded = self.decode_base64_authorization_header(encoded)
 
         if not decoded:
