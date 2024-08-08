@@ -23,8 +23,14 @@ class SessionAuth(Auth):
         return session_id
 
     def user_id_for_session_id(self, session_id: str = None) -> str:
-        """ Returns User ID based on Session ID """
+        """Retrieves user id using session id"""
         if session_id is None or isinstance(session_id, str) is False:
             return None
 
         return self.user_id_by_session_id.get(session_id)
+
+    def current_user(self, request=None):
+        """Use session id to Identify user"""
+        session_id = self.session_cookie(request)
+        user_id = self.user_id_for_session_id(session_id)
+        return User.get(user_id)
