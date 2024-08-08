@@ -6,8 +6,6 @@ Weight: 1
 - An auto review will be launched at the deadline
 ![image](https://github.com/user-attachments/assets/3a5a06be-1b1f-426f-8678-7a4c154a1d0c)
 
-![Authentication Failed](./authentication_failed.png)
-
 ## Background Context
 
 In this project, you will implement a Session Authentication. You are not allowed to install any other module.
