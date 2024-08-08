@@ -9,10 +9,10 @@ from datetime import datetime, timedelta
 
 
 class SessionExpAuth(SessionAuth):
-    """ Session Expiration """
+    """ Session Expiration class """
 
     def __init__(self):
-        """ Override init method """
+        """ Initialize and set session duration """
 
         try:
             self.session_duration = int(getenv('SESSION_DURATION'))
@@ -20,7 +20,7 @@ class SessionExpAuth(SessionAuth):
             self.session_duration = 0
 
     def create_session(self, user_id: str = None) -> str:
-        """ Creates a Session ID for user_id """
+        """ Create session ID for user """
 
         try:
             session_id = super().create_session(user_id)
@@ -37,7 +37,7 @@ class SessionExpAuth(SessionAuth):
         return session_id
 
     def user_id_for_session_id(self, session_id: str = None) -> str:
-        """ Returns User ID based on Session ID """
+        """ Return user ID from session """
 
         if session_id is None or isinstance(session_id, str) is False:
             return None
