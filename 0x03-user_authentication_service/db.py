@@ -36,7 +36,7 @@ class DB:
         return new_user
 
     def find_user_by(self, **kwargs) -> User:
-        """Find user using keyword arguments"""
+        """Find user using keyword arguments."""
         try:
             record = self._session.query(User).filter_by(**kwargs).first()
         except TypeError:
