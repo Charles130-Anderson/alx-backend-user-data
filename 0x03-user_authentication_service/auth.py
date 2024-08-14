@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Authentication and hashing module"""
-from typing import Optional
+from sqlalchemy.exc import InvalidRequestError
 import bcrypt
 from db import DB
 from user import User
@@ -52,15 +52,15 @@ class Auth:
         except NoResultFound:
             return None
 
-    def get_user_from_session_id(
-        self, session_id: Optional[str]
-    ) -> Optional[User]:
-        """Retrieve a User instance by session_id"""
+    def get_user_from_session_id(self, session_id: str) -> Union[str, None]:
+        """ Finds user by session_id """
         if session_id is None:
             return None
-
-        user = self._db.find_user_by(session_id=session_id)
-        return user if user else None
+        try:
+            found_user = self._db.find_user_by(session_id=session_id)
+            return found_user
+        except NoResultFound:
+            return None
 
 
 def _hash_password(password: str) -> bytes:
