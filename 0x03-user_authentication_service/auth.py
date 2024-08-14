@@ -52,6 +52,16 @@ class Auth:
         except NoResultFound:
             return None
 
+    def get_user_from_session_id(
+        self, session_id: Optional[str]
+    ) -> Optional[User]:
+        """Retrieve a User instance by session_id"""
+        if session_id is None:
+            return None
+
+        user = self._db.find_user_by(session_id=session_id)
+        return user if user else None
+
 
 def _hash_password(password: str) -> bytes:
     """Hash a password using bcrypt."""
