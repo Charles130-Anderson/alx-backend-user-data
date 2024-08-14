@@ -2,7 +2,7 @@
 """Basic Flask application"""
 from auth import Auth
 from flask import Flask, request, jsonify, abort, make_response, redirect
-
+from sqlalchemy.orm.exc import NoResultFound
 app = Flask(__name__)
 AUTH = Auth()
 
@@ -65,6 +65,21 @@ def profile():
         abort(403)
 
     return jsonify({"email": user.email}), 200
+
+
+@app.route('/reset_password', methods=['POST'], strict_slashes=False)
+def get_reset_password_token() -> str:
+    """Generate a reset password token"""
+    user_request = request.form
+    user_email = user_request.get('email')
+    is_registered = AUTH.create_session(user_email)
+
+    if not is_registered:
+        abort(403)
+
+    token = AUTH.get_reset_password_token(user_email)
+    message = {"email": user_email, "reset_token": token}
+    return jsonify(message)
 
 
 if __name__ == "__main__":
