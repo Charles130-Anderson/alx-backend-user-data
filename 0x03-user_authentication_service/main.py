@@ -4,37 +4,46 @@ import requests
 
 """ End-to-end integration test """
 
+
 def register_user(email: str, password: str) -> None:
     """ Test user registration """
     assert True
+
 
 def log_in_wrong_password(email: str, password: str) -> None:
     """ Test login with wrong password """
     assert True
 
+
 def log_in(email: str, password: str) -> str:
     """ Test successful login """
     assert True
+
 
 def profile_unlogged() -> None:
     """ Test profile access without login """
     assert True
 
+
 def profile_logged(session_id: str) -> None:
     """ Test profile access with login """
     assert True
+
 
 def log_out(session_id: str) -> None:
     """ Test logging out """
     assert True
 
+
 def reset_password_token(email: str) -> str:
     """ Test password reset token """
     assert True
 
+
 def update_password(email: str, reset_token: str, new_password: str) -> None:
     """ Test updating password """
     assert True
+
 
 EMAIL = "guillaume@holberton.io"
 PASSWD = "b4l0u"
