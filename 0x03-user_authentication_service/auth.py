@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Authentication and hashing module"""
-
+from typing import Optional
 import bcrypt
 from db import DB
 from user import User
