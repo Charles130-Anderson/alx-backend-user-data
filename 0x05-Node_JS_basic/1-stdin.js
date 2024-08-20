@@ -1,18 +1,17 @@
-console.log("Welcome to Holberton School, what is your name?");
+// 1-stdin.js
 
-// Listen for the user's input
-process.stdin.on('data', (data) => {
-  // Convert the input buffer to a string and trim any extra whitespace
-  const name = data.toString().trim();
-  
-  // Display the user's name
-  console.log(`Your name is: ${name}`);
-  
-  // Close the input stream to end the program
-  process.stdin.end();
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
+
+// Set encoding to automatically convert input to a string
+process.stdin.setEncoding('utf8');
+
+process.stdin.on('readable', () => {
+  const name = process.stdin.read();
+  if (name) {
+    process.stdout.write(`Your name is: ${name}`);
+  }
 });
 
-// Listen for the 'end' event to display the closing message
 process.stdin.on('end', () => {
-  console.log("This important software is now closing");
+  process.stdout.write('This important software is now closing\n');
 });
