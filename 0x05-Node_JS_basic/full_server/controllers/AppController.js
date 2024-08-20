@@ -1,8 +1,7 @@
 class AppController {
-  // Define a static method to handle the root route
-  static getHomepage(request, response) {
-    response.status(200).send('Hello Holberton School!');
+    static getHomepage(request, response) {
+      response.send(200, 'Hello Holberton School!');
+    }
   }
-}
-
-module.exports = AppController;
+  
+  export default AppController;
