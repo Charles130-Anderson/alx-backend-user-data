@@ -5,7 +5,6 @@ const { readFile } = require('fs');
 const app = express();
 const port = 1245;
 
-// Function to count students from a CSV file asynchronously
 function countStudents(fileName) {
   const students = {};
   const fields = {};
@@ -61,5 +60,4 @@ app.get('/students', (req, res) => {
 app.listen(port, () => {
 });
 
-// Export the Express app instance
 module.exports = app; 
