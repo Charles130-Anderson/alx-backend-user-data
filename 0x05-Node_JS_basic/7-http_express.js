@@ -1,63 +1,64 @@
 const express = require('express');
+const fs = require('fs');
 
-const { readFile } = require('fs');
-
-const app = express();
-const port = 1245;
-
-function countStudents(fileName) {
-  const students = {};
-  const fields = {};
-  let length = 0;
+function countStudents(databasePath) {
   return new Promise((resolve, reject) => {
-    readFile(fileName, (err, data) => {
-      if (err) {
-        reject(err);
+    fs.readFile(databasePath, 'utf8', (error, data) => {
+      if (error) {
+        reject(new Error('Cannot load the database'));
       } else {
-        let output = '';
-        const lines = data.toString().split('\n');
-        for (let i = 0; i < lines.length; i += 1) {
-          if (lines[i]) {
-            length += 1;
-            const field = lines[i].toString().split(',');
-            if (Object.prototype.hasOwnProperty.call(students, field[3])) {
-              students[field[3]].push(field[0]);
-            } else {
-              students[field[3]] = [field[0]];
+        const lines = data.split('\n');
+        const students = lines.filter((line) => line.trim() !== '').slice(1);
+
+        const totalStudents = students.length;
+
+        const fieldCount = {};
+        students.forEach((student) => {
+          const [firstName, , , field] = student.split(',');
+          if (field) {
+            if (!fieldCount[field]) {
+              fieldCount[field] = [];
             }
-            if (Object.prototype.hasOwnProperty.call(fields, field[3])) {
-              fields[field[3]] += 1;
-            } else {
-              fields[field[3]] = 1;
-            }
+            fieldCount[field].push(firstName);
           }
+        });
+
+        let result = `Number of students: ${totalStudents}\n`;
+        for (const [field, names] of Object.entries(fieldCount)) {
+          result += `Number of students in ${field}: ${names.length}. List: ${names.join(', ')}\n`;
         }
-        const l = length - 1;
-        output += `Number of students: ${l}\n`;
-        for (const [key, value] of Object.entries(fields)) {
-          if (key !== 'field') {
-            output += `Number of students in ${key}: ${value}. `;
-            output += `List: ${students[key].join(', ')}\n`;
-          }
-        }
-        resolve(output);
+        resolve(result.trim());
       }
     });
   });
 }
 
+const app = express();
+
 app.get('/', (req, res) => {
   res.send('Hello Holberton School!');
 });
+
 app.get('/students', (req, res) => {
-  countStudents(process.argv[2].toString()).then((output) => {
-    res.send(['This is the list of our students', output].join('\n'));
-  }).catch(() => {
-    res.send('This is the list of our students\nCannot load the database');
-  });
+  const databasePath = process.argv[2];
+  if (!databasePath) {
+    res.status(500).send('Database path not provided');
+    return;
+  }
+
+  res.write('This is the list of our students\n');
+  countStudents(databasePath)
+    .then((data) => {
+      res.end(data);
+    })
+    .catch((err) => {
+      res.status(500).end(err.message);
+    });
 });
 
+const port = 1245;
 app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
 });
 
-module.exports = app; 
+module.exports = app;
